@@ -35,3 +35,30 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def is_prime(n):
+    if n<2:
+        return False
+    if n==2 or n==3:
+        return True
+
+    for i in range(2, n):
+        if n%i==0:
+            return False
+
+    return True
+
+user_num= int(input("Enter a whole number: "))
+if is_prime(user_num):
+    print(f"{user_num} is a prime number")
+else:
+    print(f"{user_num} is not a prime number")
+    
+
+
+
+
+
+
+
+
+

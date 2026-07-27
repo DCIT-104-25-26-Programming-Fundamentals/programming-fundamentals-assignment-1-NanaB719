@@ -49,3 +49,44 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def generate_fibonacci(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+
+    sequence = [0, 1]
+    while len(sequence) < n:
+        next_val = sequence[-1] + sequence[-2]
+        sequence.append(next_val)
+
+    return sequence
+
+
+def is_fibonacci(num):
+    if num < 0:
+        return False
+
+    a, b = 0, 1
+    while a < num:
+        a, b = b, a + b
+
+    return a == num
+
+
+print("--- PART A: Generate N Terms ---")
+n_terms = int(input("How many terms? "))
+
+if n_terms <= 0:
+    print("Error: N must be a positive integer.")
+else:
+    fib_list = generate_fibonacci(n_terms)
+    print("Fibonacci sequence:", *fib_list)
+
+print("\n--- PART B: Check Fibonacci Number ---")
+check_num = int(input("Enter a number to check: "))
+
+if is_fibonacci(check_num):
+    print(f"{check_num} is a Fibonacci number.")
+else:
+    print(f"{check_num} is NOT a Fibonacci number.")
